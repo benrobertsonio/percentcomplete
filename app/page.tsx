@@ -1,91 +1,86 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import Image from "next/image";
+import { Press_Start_2P } from "next/font/google";
+import "nes.css/css/nes.min.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+	// today's date
+	const today = new Date();
+	// first day of the year
+	const firstDay = new Date(today.getFullYear(), 0, 1);
+	// milliseconds in a year
+	const msInYear = 1000 * 60 * 60 * 24 * 365;
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
+	// time since first day of the year
+	const timeSince = today.getTime() - firstDay.getTime();
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+	const percent = (timeSince / msInYear).toLocaleString(undefined, {
+		style: "percent",
+		minimumFractionDigits: 1,
+	});
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
+	const percentNumber = (timeSince / msInYear) * 100;
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+	return (
+		<div className={pressStart2P.className}>
+			<div
+				className="is-dark nes-container"
+				style={{
+					height: "100vh",
+					width: "100vw",
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					flexDirection: "column",
+				}}
+			>
+				<main
+					style={{
+						width: "90%",
+						margin: "0 auto",
+						maxWidth: "70ch",
+						textAlign: "center",
+					}}
+				>
+					<section className="nes-container with-title is-centered is-dark">
+						<h1 className="nes-text title">
+							Today is{" "}
+							{today.toLocaleDateString(undefined, {
+								weekday: "long",
+								year: "numeric",
+								month: "long",
+								day: "numeric",
+							})}
+							.
+						</h1>
+						<h1>
+							<span className="nes-text">
+								The year {new Date().getFullYear()} is{" "}
+								<span className="nes-text is-success">{percent}</span> complete.
+							</span>
+						</h1>
+						<br />
+						<progress
+							className="nes-progress is-pattern"
+							value={percentNumber}
+							max={100}
+						/>
+						<br />
+						<p
+							style={{ marginTop: "1em", fontSize: "1.2em" }}
+							className="nes-text"
+						>
+							{percent}
+						</p>
+					</section>
+				</main>
+				<footer style={{ marginTop: "2em" }}>
+					<p className="nes-text">
+						Made with <i className="nes-icon heart is-small" /> by Ben Robertson
+					</p>
+				</footer>
+			</div>
+		</div>
+	);
 }
