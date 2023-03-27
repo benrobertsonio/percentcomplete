@@ -25,7 +25,6 @@ export default function Home() {
 	return (
 		<div className={pressStart2P.className}>
 			<div
-				className="is-dark nes-container"
 				style={{
 					height: "100vh",
 					width: "100vw",
@@ -33,6 +32,7 @@ export default function Home() {
 					justifyContent: "center",
 					alignItems: "center",
 					flexDirection: "column",
+					backgroundColor: "#212529",
 				}}
 			>
 				<main
@@ -76,7 +76,7 @@ export default function Home() {
 					</section>
 				</main>
 				<footer style={{ marginTop: "2em" }}>
-					<p className="nes-text">
+					<p className="nes-text" style={{ color: "white" }}>
 						Made with <i className="nes-icon heart is-small" /> by Ben Robertson
 					</p>
 				</footer>
