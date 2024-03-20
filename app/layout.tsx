@@ -1,10 +1,10 @@
 import Script from "next/script";
 import "./globals.css";
 
-export const metadata = {
-	title: "Calculating.World",
-	description: `Free online calculators for date math, time calculations, percentages of years/months/days, and tracking time periods. Find elapsed and remaining times easily.`,
-};
+// export const metadata = {
+// 	title: "Calculating.World",
+// 	description: `Free online calculators for date math, time calculations, percentages of years/months/days, and tracking time periods. Find elapsed and remaining times easily.`,
+// };
 
 export default function RootLayout({
 	children,

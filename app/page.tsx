@@ -41,7 +41,7 @@ export default function Home() {
                         justifyContent: "center",
                         alignItems: "center",
                         flexDirection: "column",
-                        backgroundColor: "#212529",
+
                     }}
                 >
                     <main
@@ -53,8 +53,8 @@ export default function Home() {
                             textAlign: "center",
                         }}
                     >
-                        <div className="nes-container with-title is-centered is-dark">
-                            <h1>Calculating.World</h1>
+                        <div className="prose lg:prose-xl">
+                            <h1>🌎 Calculating.World</h1>
                             <p>
                                 Free online calculators for date math, time calculations, percentages of years/months/days, and tracking time periods. Find elapsed and remaining times easily.
                             </p>
@@ -65,7 +65,7 @@ export default function Home() {
 
                     </main>
                     <footer style={{ marginTop: "2em" }}>
-                        <p className="nes-text" style={{ color: "white" }}>
+                        <p className="nes-text">
                             Made with <i className="nes-icon heart is-small" /> by Ben
                             Robertson
                         </p>
