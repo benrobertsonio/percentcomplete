@@ -8,6 +8,14 @@ export const metadata = {
 	By?`,
 	description: `Progress bar showing how far through the year we are in ${new Date().getFullYear()}.`,
 };
+interface YearPercentageProps {
+	percent: string;
+	percentNumber: number;
+	today: string;
+	todayFormatted: string;
+	daysInYear: number;
+	day: number;
+}
 
 export default function YearPercentage({
 	percent,
@@ -16,7 +24,7 @@ export default function YearPercentage({
 	todayFormatted,
 	daysInYear,
 	day,
-}) {
+}: YearPercentageProps) {
 	const todayDate = new Date(today);
 	const year = todayDate.getFullYear();
 	const title = `What Percentage of the Year ${year} Has Gone By?`;
