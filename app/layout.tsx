@@ -1,6 +1,8 @@
 import "./globals.css";
 
 import { Inter as FontSans } from "next/font/google"
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import Script from "next/script";
 import { cn } from "@/lib/utils"
 
@@ -29,7 +31,11 @@ export default function RootLayout({
 					"min-h-screen bg-background font-sans antialiased",
 					fontSans.variable
 				)}
-			>{children}</body>
+			>
+				<Header />
+			{children}
+			<Footer />
+			</body>
 		</html>
 	);
 }

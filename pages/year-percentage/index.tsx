@@ -1,5 +1,6 @@
 // import 'nes.css/css/nes.min.css';
 import Head from 'next/head';
+import Header from '@/components/Header';
 import Layout from '@/components/Layout';
 import Link from 'next/link';
 
@@ -52,6 +53,7 @@ export default function YearPercentage({
 					content={`Calculate what percentage of the year ${todayDate.getFullYear()} has elapsed by any given date. Useful for tracking goals, timing events, and measurements based on the calendar year.`}
 				/>
 			</Head>
+			<Header />
 			<div className="prose lg:prose-xl max-w-[70ch] mx-auto my-14">
 				<div>
 					<main className="">
@@ -155,14 +157,6 @@ export default function YearPercentage({
 							</p>
 						</section>
 					</main>
-
-					<footer style={{ marginTop: '2em' }}>
-						<p className="nes-text">
-							Made with ❤️ by
-							Ben Robertson
-						</p>
-						<p><Link href="/">🌎 Calculating.World</Link></p>
-					</footer>
 				</div>
 			</div>
 		</Layout>
