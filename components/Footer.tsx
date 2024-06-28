@@ -12,6 +12,9 @@ export default function Footer() {
                 <li>
                     <Link href="/five-number-summary-calculator">Five Number Summary Calculator</Link>
                 </li>
+                <li>
+                    <Link href="/saas-churn-calculator">SaaS Churn Calculator</Link>
+                </li>
             </ul>
         </footer>
     );
